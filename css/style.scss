@@ -1,0 +1,62 @@
+@use 'archetype.css';
+
+#popular {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.card {
+    margin: 1em;
+}
+
+.swatches {
+  @for $i from 0 to 99 {
+    --color-sample-#{$i}: hsl(#{$i*(360/100)}, 100%, 50%);
+   }
+   display: grid;
+   grid-template-columns: repeat(5, 1fr);
+   grid-gap: 10px;
+   grid-auto-rows: minmax(100px, auto);
+}
+
+#cart {
+    ul {
+        padding: 0;
+    }
+    & li {
+        list-style: none;
+        padding: 4px;
+        margin: 4px 0;
+
+        &:nth-child(odd) {
+        background-color: var(--color-accent);
+        color: var(--color-light);
+        }
+
+        >span {
+            display: grid;
+            grid-template-columns: 5fr 1fr 1fr 1fr 1fr 1fr;
+
+        &:nth-child(2) {
+            > button{
+                margin: 2px;
+            }
+        }
+        }  
+    }
+}
+
+form {
+    > label {
+        margin-bottom: 20px;
+    }
+    & input[type='text'],& textarea {
+        display: block;
+        padding: 5px 0;
+        margin: 5px 0;
+    }
+    // > .radio {
+
+    // }
+}
